@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   stripeResponseHandler = function(status, result) {
     var token, $form;
-
+    console.log(result);
     $form = $('.cc_form');
 
     if (result.error) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
       $form.find("input[type=submit]").prop("disabled", false);
 
     } else {
-      token = response.id;
+      token = result.id;
       $form.append($("<input type=\"hidden\" name=\"payment[token]\" />").val(token));
       $("[data-stripe=number]").remove();
       $("[data-stripe=cvv]").remove();

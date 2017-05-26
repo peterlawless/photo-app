@@ -5,8 +5,8 @@ $(document).ready(function() {
     var $form = $(event.target);
     $form.find("input[type=submit]").prop("disabled", true);
 
-    if (stripe) {
-      stripe.createToken($form).then(stripeResponseHandler);
+    if (Stripe) {
+      Stripe.card.createToken($form, stripeResponseHandler);
     } else {
       show_error("Failed to load CC processing functionality. Please reload this page.")
     }
@@ -14,7 +14,7 @@ $(document).ready(function() {
 
   $('.cc_form').on('submit', submitHandler);
 
-  stripeResponseHandler = function(result) {
+  stripeResponseHandler = function(status, result) {
     var token, $form;
 
     $form = $('.cc_form');
@@ -25,7 +25,7 @@ $(document).ready(function() {
       $form.find("input[type=submit]").prop("disabled", false);
 
     } else {
-      token = response.token;
+      token = response.id;
       $form.append($("<input type=\"hidden\" name=\"payment[token]\" />").val(token));
       $("[data-stripe=number]").remove();
       $("[data-stripe=cvv]").remove();

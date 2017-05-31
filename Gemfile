@@ -19,7 +19,7 @@ gem 'stripe', '~> 2.8'
 gem 'carrierwave', '~> 1.1'
 # Image resizing gem
 gem 'mini_magick', '~> 4.7'
-# Work with images in production
+# Manages image upload in production
 # IMPORTANT NOTICE:
 # If there's a metagem available for your cloud provider, e.g. `fog-aws`,
 # you should be using it instead of requiring the full fog collection to avoid

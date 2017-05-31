@@ -8,11 +8,23 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
+# Authentication gem
 gem 'devise', '~> 4.3'
 gem 'twitter-bootstrap-rails', '~> 4.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'devise-bootstrap-views', '~> 0.0.11'
+# CC Payment gem
 gem 'stripe', '~> 2.8'
+# Image uploader gem
+gem 'carrierwave', '~> 1.1'
+# Image resizing gem
+gem 'mini_magick', '~> 4.7'
+# Work with images in production
+# IMPORTANT NOTICE:
+# If there's a metagem available for your cloud provider, e.g. `fog-aws`,
+# you should be using it instead of requiring the full fog collection to avoid
+# unnecessary dependencies
+gem 'fog-aws', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

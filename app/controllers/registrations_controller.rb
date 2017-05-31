@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource.persisted?
       @payment = Payment.new({email: params["user"]["email"],
-                              token: params[:payment][:token],
+                              token: params["payment"]["token"],
                               user_id: resource.id})
       puts "PAYMENT"
       puts @payment.email

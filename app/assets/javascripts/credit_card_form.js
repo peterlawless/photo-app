@@ -2,6 +2,7 @@ $(document).ready(function() {
   var show_error, stripeResponseHandler, submitHandler;
 
   submitHandler = function(event) {
+    event.preventDefault();
     var $form = $(event.target);
     $form.find("input[type=submit]").prop("disabled", true);
 
